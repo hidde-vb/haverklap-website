@@ -1,17 +1,20 @@
 import React from 'react'
 import './base.css'
-import Container from './container'
 import Navigation from './navigation'
-
+import styles from './layout.module.css'
+import Logo from '../images/logo.svg'
 class Template extends React.Component {
   render() {
     const { children } = this.props
 
     return (
-      <Container>
+      <div className={styles.wrapper}>
         <Navigation />
-        {children}
-      </Container>
+        <object className={styles.logo} type="image/svg+xml" data={Logo}> Haverklap </object>
+        <div className={styles.content}>
+          {children}
+        </div>
+      </div>
     )
   }
 }

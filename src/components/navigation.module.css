@@ -1,20 +1,106 @@
 .navigation {
-  display: flex;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  position: fixed;
   height: 20vh;
-  max-height: 100px;
+  max-height: 60px;
+  width: 100%;
   font-size: 1.25em;
+  color: white;
+  z-index: 10;
 }
 
-.navigationItem {
-  display: inline-flex;
-  align-items: center;
-  margin: 0 1em;
+.navigationBar {
+  height: 100px;
+  background-color: var(--background-color, floralwhite);
 }
 
-.navigationItem a {
-  color: currentColor;
+.verticalMenu {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  padding: 40px 0;
+  background-color: var(--background-color, floralwhite);
+  border-bottom: 3px solid var(--text-color, black);
+}
+
+.verticalMenuItem {
+  display: block;
+  padding: 10px;
+  text-align: center;
+}
+
+.menuItem {
+  padding-right: 30px;
+}
+
+.menu {
+  display: none;
+}
+
+.menuLink {
+  text-decoration: none;
+  font-family: "RobotoSlab", serif;
+  transition: color .2s linear;
+  font-size: 22px;
+  color: var(--text-color, black);
+  font-weight: 800;
+}
+
+.menuLink:hover {
+  color: rgb(147, 158, 120)
+}
+
+.menuIcon {
+  display: inline;
+  width: 32px;
+  height: 32px;
+  margin: 12px 10px 0 10px;
+}
+
+.logo {
+  position: absolute;
+  width: 45px;
+  float: left;
+  margin-left: 30px;
+  transition: .3s;
+}
+
+.hamburger {
+  float: right;
+  position: relative;
+  z-index: 3;
+  width: 45px;
+  margin-top: 30px;
+  margin-right: 30px;
+}
+
+.hamburgerLine {
+  width: 36px;
+  height: 4px;
+  background-color: var(--text-color, black);
+  border: 2px solid var(--text-color, black);
+  transition: 0.2s;
+  margin: 8px 0;
+}
+
+.active .hamburgerLine {
+  background-color: var(--background-color, floralwhite);
+}
+
+@media screen and (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+
+  .navigationBar {
+    margin-left: 240px;
+  }
+
+  .menu {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin: 0;
+    padding: 30px;
+    list-style: none;
+  }
 }

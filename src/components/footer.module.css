@@ -1,0 +1,40 @@
+.footer {
+    margin-top: 100px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+@media screen and (max-width: 800px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .footerImage, .row {
+        margin: 0 auto;
+        max-width: 240px;
+        width: 100%;
+    }
+}
+
+.footerImage {
+    max-width: 240px;
+    width: 100%;
+    height: auto;
+}
+
+.list {
+    padding: 10px;
+    list-style: none;
+}
+
+.bottom {
+    display: block;
+    margin: 60px auto;
+    text-align: center;
+}
