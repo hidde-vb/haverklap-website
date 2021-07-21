@@ -1,0 +1,11 @@
+.imageGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.image {
+  width: 40vh;
+  margin: 10px;
+}

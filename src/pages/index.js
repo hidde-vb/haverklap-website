@@ -2,20 +2,34 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
-import Hero from '../components/hero'
+import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import Footer from '../components/footer'
+import ImageGrid from '../components/imageGrid'
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const [author] = get(this, 'props.data.allContentfulPerson.edges')
     const contactImage = get(this, 'props.data.contentfulAsset.contactImage')
+    const pageContent = get(this, 'props.data.contentfulPageContent')
 
     return (
       <Layout location={this.props.location}>
         <Helmet title={siteTitle} />
-        <Hero data={author.node} />
+        <div className="wrapper">
+          <h1>{pageContent.title}</h1>
+          <Img
+            alt={pageContent.title}
+            fluid={pageContent.titleImage.fluid}
+          />
+          <div style={{ maxWidth: '600px', fontSize: '19px', padding: '20px' }}
+            dangerouslySetInnerHTML={{
+              __html: pageContent.article.childMarkdownRemark.html,
+            }}
+          />
+          <ImageGrid data={pageContent.images}/>
+        </div>
+
         <Footer data={contactImage} />
       </Layout>
     )
@@ -35,25 +49,30 @@ export const pageQuery = graphql`
         ...GatsbyContentfulFluid_tracedSVG
       }
     }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
+    contentfulPageContent {
+      title
+      titleImage {
+        fluid(
+                maxWidth: 1200
+                maxHeight: 600
+                background: "rgb:000000"
+              ) {
+                ...GatsbyContentfulFluid_tracedSVG
+              }
+      }
+      article {
+        childMarkdownRemark {
+          html
+        }
+      }
+      images { 
+        id
+        fluid(
+          maxWidth: 400
+          maxHeight: 400
+          background: "rgb:000000"
+        ) {
+          ...GatsbyContentfulFluid_tracedSVG
         }
       }
     }
