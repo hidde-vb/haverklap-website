@@ -83,8 +83,6 @@ h2 {
   }
 }
 
-
-
 a {
   color: currentColor;
   transition: color .2s linear;
@@ -95,9 +93,10 @@ a:hover {
 }
 
 p, .textBlock {
-  max-width: 650px;
+  max-width: 800px;
   font-size: 18px;
-  padding: 30px;
+  padding-bottom: 30px;
+  margin: 0 auto;
 }
 
 .wrapper {

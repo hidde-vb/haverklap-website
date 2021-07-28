@@ -1,0 +1,10 @@
+
+.partnerList {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  list-style-type: none;
+  justify-content: center;
+  align-items: space-around;
+  margin-bottom: 100px;
+}

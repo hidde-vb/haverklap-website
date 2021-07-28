@@ -2,14 +2,19 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
+
 import Layout from '../components/layout'
+import Partner from '../components/Partner'
 import ImageGrid from '../components/imageGrid'
+
+import styles from './op-het-veld.module.css'
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const contactImage = get(this, 'props.data.contentfulAsset.contactImage')
     const pageContent = get(this, 'props.data.contentfulPageContent')
+    const partners = get(this, 'props.data.allContentfulPartner.edges')
 
     console.log(pageContent);
 
@@ -23,6 +28,13 @@ class RootIndex extends React.Component {
               __html: pageContent.article.childMarkdownRemark.html,
             }}
           />
+          <div className={styles.partnerList}>
+            {partners.map(({ node }) => {
+              return (
+                <Partner key={node.title} partner={node} />
+              )
+            })}
+          </div>
           <ImageGrid data={pageContent.images} />
         </div>
       </Layout>
@@ -59,6 +71,24 @@ export const pageQuery = graphql`
         background: "rgb:000000"
       ) {
         ...GatsbyContentfulFluid_tracedSVG
+      }
+    }
+    allContentfulPartner {
+      edges {
+        node {
+          title
+          website
+          image { 
+            id
+            fluid(
+              maxWidth: 400
+              maxHeight: 400
+              background: "rgb:000000"
+            ) {
+              ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
       }
     }
   }
