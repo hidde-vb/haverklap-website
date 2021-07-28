@@ -1,0 +1,62 @@
+
+.contactWrapper {
+  display: grid;
+  grid-gap: 2rem;
+}
+
+@media (min-width: 850px) {
+  .contactWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.gridImage {
+  display: block;
+  margin: 30px;
+}
+
+.gridTile {
+  display: block;
+}
+
+/* FROM */
+
+.form {
+  padding: 10px;
+  max-width: 600px;
+}
+
+.form .group {
+  padding: 10px;
+}
+
+.form input[type="text"], .form input[type="email"], .form textarea {
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  background: white;
+  border: #e4eadf 2px solid;
+}
+
+.form input[type="submit"] {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  background: white;
+  border: 2px solid #e4eadf;
+  transition-duration: 0.2s;
+}
+
+.form input[type="submit"]:disabled {
+  background: #eee;
+  border: 2px solid #aaa;
+  color: #aaa;
+}
+
+.form input[type="submit"]:disabled:hover {
+  background: #eee;
+}
+
+.form input[type="submit"]:hover {
+  background: #e4eadf;
+}

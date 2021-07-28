@@ -11,8 +11,6 @@ class RootIndex extends React.Component {
     const contactImage = get(this, 'props.data.contentfulAsset.contactImage')
     const pageContent = get(this, 'props.data.contentfulPageContent')
 
-    console.log(pageContent);
-
     return (
       <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={true}>
         <Helmet title={siteTitle} />
