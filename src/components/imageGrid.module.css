@@ -1,11 +1,21 @@
 .imageGrid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-gap: 2rem;
   list-style: none;
+} 
+
+@media (min-width: 700px) {
+  .imageGrid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media (min-width: 1200px) {
+  .imageGrid { 
+    grid-template-columns: repeat(3, 1fr); 
+  }
 }
 
 .image {
-  width: 40vh;
-  margin: 10px;
+  display: block;
 }

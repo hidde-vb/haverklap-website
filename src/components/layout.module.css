@@ -6,15 +6,19 @@
 
 .logo {
   display: block;
-  max-width: 350px;
+  max-width: 160px;
   width: 80%;
   height: auto;
-  padding: 120px 20px 40px 20px;
+  padding: 120px 20px 20px 20px;
   margin: 0 auto
 }
 
+.big-logo {
+  max-width: 350px;
+}
+
 .content {
-  padding: 120px 20px 0px 20px;
+  padding: 80px 20px 0px 20px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -24,6 +28,7 @@
 
   .logo {
     position: fixed;
+    max-width: 350px;
     width: 180px;
     padding: 30px;
     z-index: 20;
@@ -37,6 +42,7 @@
 
   .logo {
     position: fixed;
+    
     width: 280px;
     padding: 30px;
     z-index: 20;

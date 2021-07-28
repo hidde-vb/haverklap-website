@@ -26,16 +26,16 @@ export default () => {
               <Link className={styles.menuLink} to="/">Haverklap</Link>
             </div>
             <div className={styles.verticalMenuItem}>
-              <Link className={styles.menuLink} to="/blog">Op het veld</Link>
+              <Link className={styles.menuLink} to="/op-het-veld">Op het veld</Link>
             </div>
             <div className={styles.verticalMenuItem}>
-              <Link className={styles.menuLink} to="/">Atelier</Link>
+              <Link className={styles.menuLink} to="/atelier">Atelier</Link>
             </div>
             <div className={styles.verticalMenuItem}>
-              <Link className={styles.menuLink} to="/">Verkoop</Link>
+              <Link className={styles.menuLink} to="/verkoop">Verkoop</Link>
             </div>
             <div className={styles.verticalMenuItem}>
-              <Link className={styles.menuLink} to="/">Contact</Link>
+              <Link className={styles.menuLink} to="/contact">Contact</Link>
             </div>
             <div className={styles.verticalMenuItem}>
               <Link className={styles.menuLink} to="/"><img className={styles.menuIcon} src={facebookGlyph} alt="F" /></Link>
@@ -57,19 +57,19 @@ export default () => {
           </div>
           <ul className={styles.menu}>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} to="/">Haverklap</Link>
+              <Link className={styles.menuLink} to="/">haverklap</Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} to="/">Op het veld</Link>
+              <Link className={styles.menuLink} to="/op-het-veld">op het veld</Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} to="/">Atelier</Link>
+              <Link className={styles.menuLink} to="/atelier">atelier</Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} to="/">Verkoop</Link>
+              <Link className={styles.menuLink} to="/verkoop">verkoop</Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} to="/">Contact</Link>
+              <Link className={styles.menuLink} to="/contact">contact</Link>
             </li>
             <li className={styles.menuItem}>
               <Link className={styles.menuLink} to="/"><img className={styles.menuIcon} src={facebookGlyph} alt="F" /></Link>
