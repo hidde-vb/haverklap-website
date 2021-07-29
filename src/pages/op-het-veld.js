@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 
 import Layout from '../components/layout'
-import Partner from '../components/Partner'
+import Partner from '../components/partner'
 import ImageGrid from '../components/imageGrid'
 
 import styles from './op-het-veld.module.css'

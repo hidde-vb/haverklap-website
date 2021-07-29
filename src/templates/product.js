@@ -28,7 +28,7 @@ class ProductTemplate extends React.Component {
                 }}
               />
               <Link className={styles.link} to={`/contact`}>
-                <button className="button">Gelieve hier te bestellen → </button>
+                <button className="button">Bestel hier → </button>
               </Link>
             </div>
             {productImages.map(image => {
