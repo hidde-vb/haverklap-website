@@ -97,7 +97,7 @@
 
   .menu {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     align-items: center;
     margin: 0;
     padding: 30px;

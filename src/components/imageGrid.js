@@ -5,7 +5,7 @@ import styles from './imageGrid.module.css'
 
 export default ({ data }) => (
   <ul className={styles.imageGrid}>
-    {data.map(( image ) => {
+    {data && data.map(( image ) => {
       return (
         <li lassName={styles.parent} key={image.id}>
         <Img
