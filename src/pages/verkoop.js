@@ -30,16 +30,6 @@ class Verkoop extends React.Component {
                 <ProductPreview key={node.slug} product={node} />
               )
             })}
-            {products.map(({ node }) => {
-              return (
-                <ProductPreview key={node.slug} product={node} />
-              )
-            })}
-            {products.map(({ node }) => {
-              return (
-                <ProductPreview key={node.slug} product={node} />
-              )
-            })}
           </div>
         </div>
       </Layout>
