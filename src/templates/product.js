@@ -15,11 +15,14 @@ class ProductTemplate extends React.Component {
     const mainProductImage = productImages.shift();
 
     return (
-      <Layout location={this.props.location} footerImage={contactImage}>
+      <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={false}>
         <Helmet title={`${product.title}`} />
         <div className="wrapper">
+          <Link className={styles.link} to={`/verkoop`}>
+            <button className="button button-light">← terug</button>
+          </Link>
           <div className={styles.productWrapper}>
-          <Img className={styles.gridTile} key={mainProductImage.id} alt={mainProductImage.title} fluid={mainProductImage.fluid} />
+            <Img className={styles.gridTile} key={mainProductImage.id} alt={mainProductImage.title} fluid={mainProductImage.fluid} />
             <div className={`${styles.gridTile} ${styles.article}`}>
               <h2 className="title">{product.title}</h2>
               <div

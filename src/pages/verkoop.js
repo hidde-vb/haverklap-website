@@ -15,7 +15,7 @@ class Verkoop extends React.Component {
     const contactImage = get(this, 'props.data.contentfulAsset.contactImage')
 
     return (
-      <Layout location={this.props.location} footerImage={contactImage}>
+      <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={false}>
         <Helmet title={siteTitle} />
         <div className="wrapper">
           <h1 className="pageTitle">{pageContent.title}</h1>
@@ -51,8 +51,8 @@ export const pageQuery = graphql`
     }
     contentfulAsset(title: { eq: "contact" }) {
       contactImage: fluid(
-        maxWidth: 300
-        maxHeight: 400
+        maxWidth: 600
+        maxHeight: 800
         background: "rgb:000000"
       ) {
         ...GatsbyContentfulFluid_tracedSVG

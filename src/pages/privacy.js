@@ -3,7 +3,6 @@ import { graphql } from 'gatsby'
 import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
-import ImageGrid from '../components/imageGrid'
 
 class RootIndex extends React.Component {
   render() {
@@ -21,7 +20,6 @@ class RootIndex extends React.Component {
               __html: pageContent.article.childMarkdownRemark.html,
             }}
           />
-          <ImageGrid data={pageContent.images} />
         </div>
       </Layout>
     )
@@ -31,25 +29,7 @@ class RootIndex extends React.Component {
 export default RootIndex
 
 export const pageQuery = graphql`
-  query AtelierIndexQuery {
-    contentfulPageContent(title: { eq: "atelier"}) {
-      title
-      article {
-        childMarkdownRemark {
-          html
-        }
-      }
-      images { 
-        id
-        fluid(
-          maxWidth: 400
-          maxHeight: 400
-          background: "rgb:000000"
-        ) {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
-      }
-    }
+  query PrivacyQuery {
     contentfulAsset(title: { eq: "contact" }) {
       contactImage: fluid(
         maxWidth: 300
@@ -57,6 +37,14 @@ export const pageQuery = graphql`
         background: "rgb:000000"
       ) {
         ...GatsbyContentfulFluid_tracedSVG
+      }
+    }
+    contentfulPageContent(title: { eq: "privacy" }) {
+      title
+      article {
+        childMarkdownRemark {
+          html
+        }
       }
     }
   }

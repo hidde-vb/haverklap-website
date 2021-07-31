@@ -17,7 +17,7 @@ class RootIndex extends React.Component {
     const partners = get(this, 'props.data.allContentfulPartner.edges')
 
     return (
-      <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={true}>
+      <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={false}>
         <Helmet title={siteTitle} />
         <div className="wrapper">
           <h1 className="pageTitle">{pageContent.title}</h1>

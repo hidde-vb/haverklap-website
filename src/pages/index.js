@@ -5,6 +5,7 @@ import { Helmet } from 'react-helmet'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import ImageGrid from '../components/imageGrid'
+import signature from '../images/signature.jpg'
 
 class RootIndex extends React.Component {
   render() {
@@ -15,18 +16,20 @@ class RootIndex extends React.Component {
     return (
       <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={true}>
         <Helmet title={siteTitle} />
+        <Img
+          alt={pageContent.title}
+          fluid={pageContent.titleImage.fluid}
+        />
         <div className="wrapper">
-          <h1>{pageContent.title}</h1>
-          <Img
-            alt={pageContent.title}
-            fluid={pageContent.titleImage.fluid}
-          />
-          <div className="textBlock"
-            dangerouslySetInnerHTML={{
-              __html: pageContent.article.childMarkdownRemark.html,
-            }}
-          />
-          <ImageGrid data={pageContent.images}/>
+          <div className="wrapper-intro">
+            <div className="textBlock"
+              dangerouslySetInnerHTML={{
+                __html: pageContent.article.childMarkdownRemark.html,
+              }}
+            />
+            <img className="signature" src={signature} alt="Bieke" ></img>
+          </div>
+          <ImageGrid data={pageContent.images} />
         </div>
       </Layout>
     )

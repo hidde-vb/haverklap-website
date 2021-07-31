@@ -10,7 +10,6 @@
 
 .navigationBar {
   height: 100px;
-  background-color: var(--background-color, floralwhite);
 }
 
 .verticalMenu {
@@ -86,13 +85,14 @@
   background-color: var(--background-color, floralwhite);
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1064px) {
   .hamburger {
     display: none;
   }
 
   .navigationBar {
     margin-left: 240px;
+    background-color: var(--background-color, floralwhite);
   }
 
   .menu {

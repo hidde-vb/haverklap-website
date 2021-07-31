@@ -14,7 +14,7 @@ class RootIndex extends React.Component {
     const pageContent = get(this, 'props.data.contentfulPageContent')
 
     return (
-      <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={true}>
+      <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={false}>
         <Helmet title={siteTitle} />
         <div className="wrapper">
           <h1 className="pageTitle">{pageContent.title}</h1>
