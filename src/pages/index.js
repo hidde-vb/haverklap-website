@@ -53,8 +53,9 @@ export const pageQuery = graphql`
       title
       titleImage {
         fluid(
-                maxWidth: 1200
-                maxHeight: 600
+                maxWidth: 2400
+                maxHeight: 1200
+                quality: 95
                 background: "rgb:000000"
               ) {
                 ...GatsbyContentfulFluid_tracedSVG
@@ -70,6 +71,7 @@ export const pageQuery = graphql`
         fluid(
           maxWidth: 400
           maxHeight: 400
+          quality: 95
           background: "rgb:000000"
         ) {
           ...GatsbyContentfulFluid_tracedSVG

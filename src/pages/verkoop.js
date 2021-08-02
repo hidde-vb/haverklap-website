@@ -53,6 +53,7 @@ export const pageQuery = graphql`
       contactImage: fluid(
         maxWidth: 600
         maxHeight: 800
+        quality: 90
         background: "rgb:000000"
       ) {
         ...GatsbyContentfulFluid_tracedSVG

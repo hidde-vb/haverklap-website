@@ -72,6 +72,7 @@ export const pageQuery = graphql`
         fluid(
           maxWidth: 600
           maxHeight: 500
+          quality: 95
           background: "rgb:000000"
         ) {
           ...GatsbyContentfulFluid_tracedSVG
