@@ -45,6 +45,11 @@ class RootIndex extends React.Component {
         <Helmet title={siteTitle} />
         <div className="wrapper">
           <h1 className="pageTitle">{pageContent.title}</h1>
+          <div className="textBlock"
+            dangerouslySetInnerHTML={{
+              __html: pageContent.article.childMarkdownRemark.html,
+            }}
+          />
           <div className={styles.contactWrapper}>
             <Img className={styles.gridImage} alt={pageContent.title} fluid={pageContent.images[0].fluid} />
             <div className={styles.gridTile}>

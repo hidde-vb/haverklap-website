@@ -25,7 +25,7 @@ export default ({ data }) => (
       </div>
     </div>
     <div className={styles.bottom}>
-      <Link to="/privacy">Privact & Cookies</Link>
+      <Link to="/privacy">Privacy & Cookies</Link>
       &nbsp;- © 2021 Haverklap -&nbsp;
       <a href="http://hidde.cc">Hidde van Bavel</a>
     </div>
