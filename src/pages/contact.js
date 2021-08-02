@@ -8,6 +8,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 
 import styles from './contact.module.css'
+import favicon from '../images/favicon.ico'
 
 class RootIndex extends React.Component {
 
@@ -42,7 +43,9 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={false}>
-        <Helmet title={siteTitle} />
+        <Helmet title={siteTitle} >
+          <link rel="icon" href={favicon} />
+        </Helmet>
         <div className="wrapper">
           <h1 className="pageTitle">{pageContent.title}</h1>
           <div className="textBlock"

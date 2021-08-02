@@ -4,7 +4,7 @@ import get from 'lodash/get'
 import { Helmet } from 'react-helmet'
 import Layout from '../components/layout'
 import ImageGrid from '../components/imageGrid'
-
+import favicon from '../images/favicon.ico'
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
@@ -13,7 +13,9 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={false}>
-        <Helmet title={siteTitle} />
+        <Helmet title={siteTitle} >
+          <link rel="icon" href={favicon} />
+        </Helmet>
         <div className="wrapper">
           <h1 className="pageTitle">{pageContent.title}</h1>
           <div className="textBlock"

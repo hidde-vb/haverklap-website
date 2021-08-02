@@ -6,6 +6,7 @@ import Img from 'gatsby-image'
 import Layout from '../components/layout'
 import ImageGrid from '../components/imageGrid'
 import signature from '../images/signature.jpg'
+import favicon from '../images/favicon.ico'
 
 class RootIndex extends React.Component {
   render() {
@@ -15,7 +16,9 @@ class RootIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={true}>
-        <Helmet title={siteTitle} />
+        <Helmet title={siteTitle} >
+          <link rel="icon" href={favicon} />
+        </Helmet>
         <Img
           alt={pageContent.title}
           fluid={pageContent.titleImage.fluid}

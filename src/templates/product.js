@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet'
 import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
+import favicon from '../images/favicon.ico'
 
 import styles from './product.module.css'
 
@@ -16,7 +17,9 @@ class ProductTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={false}>
-        <Helmet title={`${product.title} | haverklap`} />
+        <Helmet title={`${product.title}`} >
+          <link rel="icon" href={favicon} />
+        </Helmet>
         <div className="wrapper">
           <Link className={styles.link} to={`/verkoop`}>
             <button className="button button-light">← terug</button>
