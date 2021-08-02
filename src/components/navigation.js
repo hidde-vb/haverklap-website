@@ -38,8 +38,8 @@ export default () => {
               <Link className={styles.menuLink} to="/contact">Contact</Link>
             </div>
             <div className={styles.verticalMenuItem}>
-              <Link className={styles.menuLink} to="/"><img className={styles.menuIcon} src={facebookGlyph} alt="F" /></Link>
-              <Link className={styles.menuLink} to="/"><img className={styles.menuIcon} src={instagramGlyph} alt="I" /></Link>
+              <Link className={styles.menuLink} to="https://www.instagram.com/haverklap.bloemen/"><img className={styles.menuIcon} src={facebookGlyph} alt="F" /></Link>
+              <Link className={styles.menuLink} to="https://www.facebook.com/haverklap.bloemen"><img className={styles.menuIcon} src={instagramGlyph} alt="I" /></Link>
             </div>
           </div>
         }
