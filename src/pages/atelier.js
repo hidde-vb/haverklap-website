@@ -32,6 +32,11 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query AtelierIndexQuery {
+    site {
+      siteMetadata {
+        title
+      } 
+    }
     contentfulPageContent(title: { eq: "atelier"}) {
       title
       article {
@@ -44,6 +49,7 @@ export const pageQuery = graphql`
         fluid(
           maxWidth: 400
           maxHeight: 400
+          quality: 95
           background: "rgb:000000"
         ) {
           ...GatsbyContentfulFluid_tracedSVG

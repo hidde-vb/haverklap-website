@@ -16,7 +16,7 @@ class ProductTemplate extends React.Component {
 
     return (
       <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={false}>
-        <Helmet title={`${product.title}`} />
+        <Helmet title={`${product.title} | haverklap`} />
         <div className="wrapper">
           <Link className={styles.link} to={`/verkoop`}>
             <button className="button button-light">← terug</button>

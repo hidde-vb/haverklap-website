@@ -49,6 +49,11 @@ export const pageQuery = graphql`
         ...GatsbyContentfulFluid_tracedSVG
       }
     }
+    site {
+      siteMetadata {
+        title
+      } 
+    }
     contentfulPageContent(title: { eq: "haverklap" }) {
       title
       titleImage {

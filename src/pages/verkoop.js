@@ -49,6 +49,11 @@ export const pageQuery = graphql`
         }
       }
     }
+    site {
+      siteMetadata {
+        title
+      } 
+    }
     contentfulAsset(title: { eq: "contact" }) {
       contactImage: fluid(
         maxWidth: 600
@@ -74,6 +79,7 @@ export const pageQuery = graphql`
             fluid(
               maxWidth: 350
               maxHeight: 400
+              quality: 95
               background: "rgb:000000"
             ) {
               ...GatsbyContentfulFluid_tracedSVG

@@ -83,6 +83,11 @@ export default RootIndex
 
 export const pageQuery = graphql`
   query ContactIndexQuery {
+    site {
+      siteMetadata {
+        title
+      } 
+    }
     contentfulPageContent(title: { eq: "contact"}) {
       title
       article {
@@ -95,6 +100,7 @@ export const pageQuery = graphql`
         fluid(
           maxWidth: 400
           maxHeight: 300
+          quality: 95
           background: "rgb:000000"
         ) {
           ...GatsbyContentfulFluid_tracedSVG
