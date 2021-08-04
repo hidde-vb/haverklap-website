@@ -16,7 +16,7 @@ export default ({ data }) => (
           <li><b>Contact</b></li>
           <li>Bieke Van Gils</li>
           <li>0494 79 17 81</li>
-          <li>info@haverklapbloemen.be</li>
+          <li>bieke@haverklapbloemen.be</li>
           <li>BE88 7360 6537 5741</li>
         </ul>
         <ul className={styles.list}>
