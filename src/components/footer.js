@@ -17,10 +17,10 @@ export default ({ data }) => (
           <li>Bieke Van Gils</li>
           <li>0494 79 17 81</li>
           <li>bieke@haverklapbloemen.be</li>
-          <li>BE88 7360 6537 5741</li>
+          <li>rek. BE88 7360 6537 5741</li>
         </ul>
         <ul className={styles.list}>
-          <li>BE0654.987.352</li>
+          <li>BTW BE0654.987.352</li>
         </ul>
       </div>
     </div>

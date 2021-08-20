@@ -59,16 +59,23 @@ class RootIndex extends React.Component {
               <form id="contact-form" className={styles.form} onSubmit={this.sendEmail}>
                 <input type="hidden" name="contact_number" />
                 <div className={styles.group}>
-                  <label htmlFor="user_name">Naam</label>
-                  <input type="text" required name="user_name" placeholder="" />
+                  <label htmlFor="user_name">
+                    Naam
+                    <input type="text" required id="user_name" name="user_name" placeholder="" />
+                  </label>
                 </div>
                 <div className={styles.group}>
-                  <label htmlFor="user_mail">Email</label>
-                  <input type="email" required name="user_mail" placeholder="voorbeeld@mail.com" />
+                  <label htmlFor="user_mail">
+                    Email
+                    <input type="email" required id="user_mail" name="user_mail" placeholder="voorbeeld@mail.com" />
+                  </label>
+                  
                 </div>
                 <div className={styles.group}>
-                  <label htmlFor="message">Bericht (max 300 karakters)</label>
-                  <textarea required name="message" placeholder="uw bericht" disabled={this.state.disabled}></textarea>
+                  <label htmlFor="message">
+                    Bericht (max 300 karakters)
+                    <textarea required name="message" id="message" placeholder="uw bericht" disabled={this.state.disabled}></textarea>
+                  </label>
                 </div>
                 <div className={styles.group}>
                   <input id="submit" type="submit" value={this.state.message} disabled={this.state.disabled} />

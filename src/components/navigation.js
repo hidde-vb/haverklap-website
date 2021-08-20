@@ -38,8 +38,8 @@ export default () => {
               <Link className={styles.menuLink} to="/contact">Contact</Link>
             </div>
             <div className={styles.verticalMenuItem}>
-              <a className={styles.menuLink} href="https://www.facebook.com/haverklap.bloemen/" target="_blank"><img className={styles.menuIcon} src={facebookGlyph} alt="F" /></a>
-              <a className={styles.menuLink} href="https://www.instagram.com/haverklap.bloemen/" target="_blank"><img className={styles.menuIcon} src={instagramGlyph} alt="I" /></a>
+              <a className={styles.menuLink} href="https://www.facebook.com/haverklap.bloemen/" rel="noreferrer" target="_blank" ><img className={styles.menuIcon} src={facebookGlyph} alt="F" /></a>
+              <a className={styles.menuLink} href="https://www.instagram.com/haverklap.bloemen/" rel="noreferrer" target="_blank"><img className={styles.menuIcon} src={instagramGlyph} alt="I" /></a>
             </div>
           </div>
         }
@@ -72,8 +72,8 @@ export default () => {
               <Link className={styles.menuLink} to="/contact">contact</Link>
             </li>
             <li className={styles.menuItem}>
-              <a className={styles.menuLink} href="https://www.facebook.com/haverklap.bloemen/" target="_blank"><img className={styles.menuIcon} src={facebookGlyph} alt="F" /></a>
-              <a className={styles.menuLink} href="https://www.instagram.com/haverklap.bloemen/" target="_blank"><img className={styles.menuIcon} src={instagramGlyph} alt="I" /></a>
+              <a className={styles.menuLink} href="https://www.facebook.com/haverklap.bloemen/" rel="noreferrer" target="_blank"><img className={styles.menuIcon} src={facebookGlyph} alt="F" /></a>
+              <a className={styles.menuLink} href="https://www.instagram.com/haverklap.bloemen/" rel="noreferrer" target="_blank"><img className={styles.menuIcon} src={instagramGlyph} alt="I" /></a>
             </li>
           </ul>
         </div>
