@@ -20,17 +20,17 @@ class RootIndex extends React.Component {
         <Helmet title={siteTitle} >
           <link rel="icon" href={favicon} />
         </Helmet>
-        <div className="jumbo">
+         {/* <div className="jumbo"> */}
           <Img
             alt={pageContent.title}
             fluid={pageContent.titleImage.fluid}
           />
-          <div className="jumboText"
+          {/* <div className="jumboText"
             dangerouslySetInnerHTML={{
               __html: newsContent.main.childMarkdownRemark.html,
             }}
           />
-        </div>
+        </div>  */}
         <div className="wrapper">
           <div className="wrapper-intro">
             <div className="textBlock"
