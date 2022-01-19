@@ -15,6 +15,7 @@ export default ({ data }) => (
         <ul className={styles.list}>
           <li><b>Contact</b></li>
           <li>Bieke Van Gils</li>
+          <li><a  href="https://goo.gl/maps/VDhZ7FouEU1Wjpg46" rel="noreferrer" target="_blank">Adres Winkel</a></li>
           <li>0494 79 17 81</li>
           <li>bieke@haverklapbloemen.be</li>
           <li>rek. BE88 7360 6537 5741</li>

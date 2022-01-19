@@ -147,3 +147,25 @@ p, .textBlock {
 .list-inline li {
   display: inline-block;
 }
+
+ .jumbo {
+  position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  .jumboText {
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 20px;
+  } 
+}
+
+@media screen and (min-width: 600px) {
+  .jumboText {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: var(--background-color);
+    font-size: 80%;
+    padding: 20px;
+  } 
+}

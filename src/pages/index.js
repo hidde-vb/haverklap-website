@@ -13,16 +13,24 @@ class RootIndex extends React.Component {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const contactImage = get(this, 'props.data.contentfulAsset.contactImage')
     const pageContent = get(this, 'props.data.contentfulPageContent')
+    const newsContent = get(this, 'props.data.contentfulNews')
 
     return (
       <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={true}>
         <Helmet title={siteTitle} >
           <link rel="icon" href={favicon} />
         </Helmet>
-        <Img
-          alt={pageContent.title}
-          fluid={pageContent.titleImage.fluid}
-        />
+        <div className="jumbo">
+          <Img
+            alt={pageContent.title}
+            fluid={pageContent.titleImage.fluid}
+          />
+          <div className="jumboText"
+            dangerouslySetInnerHTML={{
+              __html: newsContent.main.childMarkdownRemark.html,
+            }}
+          />
+        </div>
         <div className="wrapper">
           <div className="wrapper-intro">
             <div className="textBlock"
@@ -56,6 +64,13 @@ export const pageQuery = graphql`
       siteMetadata {
         title
       } 
+    }
+    contentfulNews {
+      main {
+        childMarkdownRemark {
+          html
+        }
+      }
     }
     contentfulPageContent(title: { eq: "haverklap" }) {
       title
