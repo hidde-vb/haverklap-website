@@ -15,3 +15,7 @@
 .gridTile {
   display: block;
 }
+
+.gridTileContainer {
+  height: fit-content;
+}

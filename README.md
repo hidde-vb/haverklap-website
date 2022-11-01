@@ -9,7 +9,7 @@ $ git clone git@github.com:hidde-vb/haverklap-website.git
 $ npm i
 ```
 
-## Crucial Commands
+## Essential Commands
 
 ### `npm run dev`
 

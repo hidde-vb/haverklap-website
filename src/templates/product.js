@@ -25,7 +25,9 @@ class ProductTemplate extends React.Component {
             <button className="button button-light">← terug</button>
           </Link>
           <div className={styles.productWrapper}>
-            <Img className={styles.gridTile} key={mainProductImage.id} alt={mainProductImage.title} fluid={mainProductImage.fluid} />
+            <div classname={styles.gridTileContainer}>
+              <Img className={styles.gridTile} key={mainProductImage.id} alt={mainProductImage.title} fluid={mainProductImage.fluid} />
+            </div>
             <div className={`${styles.gridTile} ${styles.article}`}>
               <h2 className="title">{product.title}</h2>
               <div
