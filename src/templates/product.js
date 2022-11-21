@@ -4,27 +4,25 @@ import { Helmet } from "react-helmet";
 import get from "lodash/get";
 import Img from "gatsby-image";
 import Layout from "../components/layout";
+import Checkout from "../components/checkout";
 import favicon from "../images/favicon.ico";
 
 import styles from "./product.module.css";
 
 // TODO test a simple checkout
 // TODO show the first spec if available
-// DONE render dropdown on een keep selection in state
+// DONE render dropdown on and keep selection in state
 //    TODO disable selection when sold out
 //    TODO when everything is disabled. disable button
 const ProductTemplate = (props) => {
   const product = get(props, "data.contentfulProduct");
   const contactImage = get(props, "data.contentfulAsset.contactImage");
-  const specifications = get(
+  const prices = get(
     props,
-    "data.contentfulProduct.product_specification"
+    "data.contentfulProduct.prices"
   );
 
-  const [selectedSpec, setSelectedSpec] = useState(specifications[0]);
-  const handleBlur = (e) => setSelectedSpec(e.target.value);
-
-  console.log(selectedSpec);
+  const [selectedSpec, setSelectedSpec] = useState(prices ? prices[0] : {});
 
   const productImages = [...product.images];
   const mainProductImage = productImages.shift();
@@ -58,25 +56,24 @@ const ProductTemplate = (props) => {
                 __html: product.article.childMarkdownRemark.html,
               }}
             />
-            {specifications?.length > 0 && (
+
+            {prices?.length > 0 && (
               <div>
                 <select
-                  name="specifications"
+                  name="prices"
                   id="spec-select"
                   value={selectedSpec}
-                  onChange={(e) => setSelectedSpec(e.target.value)}
+                  onBlur={(e) => setSelectedSpec(e.target.value)}
                 >
-                  {specifications.map((spec) => {
+                  {prices.map((spec) => {
                     return <option value={spec.price}>{spec.name}</option>;
                   })}
                 </select>
-                <p></p>
               </div>
             )}
-            {specifications?.length > 0 ? (
-              <Link className={styles.link} to={`/contact`}>
-                <button className="button">Bestel online</button>
-              </Link>
+            
+            {prices?.length > 0 ? (
+              <Checkout />
             ) : (
               <Link className={styles.link} to={`/contact`}>
                 <button className="button">Bestel hier → </button>
@@ -114,15 +111,12 @@ export const pageQuery = graphql`
     }
     contentfulProduct(slug: { eq: $slug }) {
       title
-      product_specification {
-        name
-        price
-      }
       article {
         childMarkdownRemark {
           html
         }
       }
+      prices,
       images {
         id
         title
