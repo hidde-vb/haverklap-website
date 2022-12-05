@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import get from "lodash/get";
 import Img from "gatsby-image";
+
 import Layout from "../components/layout";
 import Checkout from "../components/checkout";
 import favicon from "../images/favicon.ico";
@@ -46,7 +47,7 @@ const ProductTemplate = (props) => {
     const spec = specs.find((e) => e.price.id === selectedSpec);
 
     if (spec) setPrice(formatEuro(spec.price.value));
-  }, [selectedSpec]);
+  }, [specs, selectedSpec]);
 
   const productImages = [...product.images];
   const mainProductImage = productImages.shift();
@@ -88,6 +89,7 @@ const ProductTemplate = (props) => {
                     id="spec-select"
                     value={selectedSpec}
                     onChange={(e) => setSelectedSpec(e.target.value)}
+                    onBlur={(e) => setSelectedSpec(e.target.value)}
                   >
                     {specs.map((spec) => (
                       <option key={spec.price.id} value={spec.price.id}>
@@ -95,7 +97,7 @@ const ProductTemplate = (props) => {
                       </option>
                     ))}
                   </select>
-                  <span class="focus"></span>
+                  <span className="focus"></span>
                 </div>
                 <div className={styles.checkoutGroup}>
                   <h2 className={styles.price}>{price}</h2>

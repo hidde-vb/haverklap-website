@@ -31,5 +31,4 @@ export default ({ data }) => (
       <a href="http://hidde.cc">Hidde van Bavel</a>
     </div>
   </div>
-
 )
