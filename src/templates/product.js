@@ -39,9 +39,7 @@ const ProductTemplate = (props) => {
       setSelectedSpec(data[0].price.id);
     };
 
-    if (stripeProducts) {
-      fetchSpecs();
-    }
+    if (stripeProducts) fetchSpecs();
   }, [stripeProducts]);
 
   useEffect(() => {
@@ -99,7 +97,7 @@ const ProductTemplate = (props) => {
                   </select>
                   <span class="focus"></span>
                 </div>
-                <div>
+                <div className={styles.checkoutGroup}>
                   <h2 className={styles.price}>{price}</h2>
                   <Checkout spec={selectedSpec} />
                 </div>

@@ -19,7 +19,7 @@ const Checkout = (product) => {
   };
 
   return (
-    <button className="button" disabled={loading} onClick={redirectToCheckout}>
+    <button className="button button-checkout" disabled={loading} onClick={redirectToCheckout}>
       Afrekenen
     </button>
   );

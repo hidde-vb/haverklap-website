@@ -22,8 +22,6 @@
   font-display: swap;
 }
 
-
-
 html {
   --text-color: #1d1d1d;
   --background-color: #fff;
@@ -127,6 +125,11 @@ p, .textBlock {
   background-color: var(--secondary-color);
   border: 3px solid var(--secondary-color);
   transition: 0.2s ease-out;
+}
+
+.button-checkout {
+  padding: 0 60px;
+  margin: 10px 0;
 }
 
 .button-light {
