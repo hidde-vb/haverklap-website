@@ -22,8 +22,6 @@
   font-display: swap;
 }
 
-
-
 html {
   --text-color: #1d1d1d;
   --background-color: #fff;
@@ -119,8 +117,8 @@ p, .textBlock {
 .button {
   font-size: 18px;
   font-family: "poppins", Tahoma, Arial, Helvetica, sans-serif;
-  padding: 15px 30px;
-  border-radius: 30px;
+  padding: 15px 60px;
+  border-radius: 5px;
   margin: 20px;
   text-align: center;
   color: var(--text-color, black);
@@ -129,14 +127,27 @@ p, .textBlock {
   transition: 0.2s ease-out;
 }
 
+.button-checkout {
+  padding: 0 60px;
+  margin: 10px 0;
+}
+
 .button-light {
   background-color: var(--background-color);
+  padding: 15px 45px;
+  border-radius: 30px;
 }
 
 .button:hover {
   transform: translateY(-3px);
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: "not-allowed";
+}
+
 
 .list-inline {
   margin: 0;
