@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import styles from "./modal.module.css";
+import logo from "../images/logo.svg";
 
 const Modal = ({ children }) => {
   const [showModal, setShowModal] = useState(true);
@@ -16,7 +17,7 @@ const Modal = ({ children }) => {
       {showModal && (
         <div onClick={toggleModal} className={styles.modal}>
           <div className={styles.container}>
-            <h2>Haverklap</h2>
+            <object className={styles.image} type="image/svg+xml" data={logo}> Haverklap </object>
             {children}
           </div>
         </div>
