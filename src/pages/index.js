@@ -12,7 +12,7 @@ import Modal from '../components/modal';
 import signature from '../images/signature.jpg';
 import favicon from '../images/favicon.ico';
 
-const RootIndex = props => {
+const RootIndex = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');
   const contactImage = get(props, 'data.contentfulAsset.contactImage');
   const pageContent = get(props, 'data.contentfulPageContent');
