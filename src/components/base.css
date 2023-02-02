@@ -1,24 +1,24 @@
 @font-face {
-  font-family: "poppins";
+  font-family: 'poppins';
   font-weight: 400;
   font-style: normal;
-  src: url("/poppins-reg.ttf") format("truetype");
+  src: url('/poppins-reg.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
-  font-family: "poppins";
+  font-family: 'poppins';
   font-weight: bold;
   font-style: normal;
-  src: url("/robotoslab-bold.ttf") format("truetype");
+  src: url('/robotoslab-bold.ttf') format('truetype');
   font-display: swap;
 }
 
 @font-face {
-  font-family: "RobotoSlab";
+  font-family: 'RobotoSlab';
   font-weight: 400;
   font-style: normal;
-  src: url("/robotoslab-reg.ttf") format("truetype");
+  src: url('/robotoslab-reg.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -27,10 +27,12 @@ html {
   --background-color: #fff;
   --primary-color: #939e78;
   --secondary-color: #e1e8cf;
+  --off-white: #f4f7f0;
+  --warning: #f0ecd7;
 }
 
 body {
-  font-family: "poppins", Tahoma, Arial, Helvetica, sans-serif;
+  font-family: 'poppins', Tahoma, Arial, Helvetica, sans-serif;
   font-size: 1em;
   line-height: 1.65;
   color: var(--text-color, black);
@@ -51,7 +53,7 @@ img {
 h1,
 h2,
 h3 {
-  font-family: "RobotoSlab", serif;
+  font-family: 'RobotoSlab', serif;
   font-weight: normal;
 }
 
@@ -84,18 +86,24 @@ h2 {
 
 a {
   color: currentColor;
-  transition: color .2s linear;
+  transition: color 0.2s linear;
 }
 
 a:hover {
   color: var(--primary-color, #939e78);
 }
 
-p, .textBlock {
+p,
+.textBlock,
+.main {
   max-width: 800px;
   font-size: 18px;
   padding-bottom: 30px;
   margin: 0 auto;
+}
+
+.main {
+  padding: 8px;
 }
 
 .wrapper {
@@ -104,19 +112,27 @@ p, .textBlock {
   padding: 5vmin 20px;
 }
 
+.warning-container {
+  display: flex;
+  border-radius: 5px;
+  background-color: var(--warning);
+  padding: 20px;
+  margin: 5px;
+}
+
 .wrapper-intro {
   max-width: 900px;
   margin: 60px auto 0;
 }
 
 .signature {
-    max-width: 150px;
-    padding: 40px 20px;
-    margin-left: auto;
+  max-width: 150px;
+  padding: 40px 20px;
+  margin-left: auto;
 }
 .button {
-  font-size: 18px;
-  font-family: "poppins", Tahoma, Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  font-family: 'poppins', Tahoma, Arial, Helvetica, sans-serif;
   padding: 15px 60px;
   border-radius: 5px;
   margin: 20px;
@@ -127,27 +143,21 @@ p, .textBlock {
   transition: 0.2s ease-out;
 }
 
-.button-checkout {
-  padding: 15px 60px;
-  margin: 10px 0;
-}
-
 .button-light {
   background-color: var(--background-color);
-  padding: 15px 45px;
-  border-radius: 30px;
+  padding: 10px 45px;
+  border-radius: 10px;
 }
 
 .button:hover {
-  transform: translateY(-3px);
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  transform: translateY(-2px);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px;
 }
 
 .button:disabled {
   opacity: 0.5;
-  cursor: "not-allowed";
+  cursor: 'not-allowed';
 }
-
 
 .list-inline {
   margin: 0;
@@ -159,7 +169,7 @@ p, .textBlock {
   display: inline-block;
 }
 
- .jumbo {
+.jumbo {
   position: relative;
 }
 
@@ -167,7 +177,7 @@ p, .textBlock {
   .jumboText {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
     padding: 20px;
-  } 
+  }
 }
 
 @media screen and (min-width: 600px) {
@@ -178,5 +188,5 @@ p, .textBlock {
     background-color: var(--background-color);
     font-size: 80%;
     padding: 20px;
-  } 
+  }
 }

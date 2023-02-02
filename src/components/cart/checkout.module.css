@@ -1,0 +1,48 @@
+.content {
+  display: block;
+  width: 100%;
+}
+
+.messageBox {
+  flex-grow: 2;
+  width: 98.5%;
+
+  font-family: 'RobotoSlab', serif;
+  font-size: 0.9em;
+
+  min-width: 160px;
+
+  min-height: 160px;
+  max-height: 240px;
+
+  background: white;
+  border: #e4eadf 2px solid;
+  border-radius: 5px;
+}
+
+.title {
+  margin: 0;
+  width: 80%;
+  font-family: 'RobotoSlab', serif;
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+.price {
+  padding-bottom: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    padding-right: 30px;
+    display: flex;
+  }
+
+  .pricing {
+    padding-left: 30px;
+  }
+}
+
+.quantityButton {
+  background-color: var(--secondary-color);
+}

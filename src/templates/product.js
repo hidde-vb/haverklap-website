@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import get from 'lodash/get';
 import Img from 'gatsby-image';
 
 import Layout from '../components/layout';
-import Checkout from '../components/checkout';
+import { formatEuro } from '../components/cart/cart-utils';
 import favicon from '../images/favicon.ico';
 
 import styles from './product.module.css';
+import { cartDispatchContext } from '../components/cart/cart-context';
+import PrimaryButton from '../components/primary-button';
 
 const fetchProduct = async (product) => {
   const response = await fetch(`${process.env.API_URL}/products/${product}`, {
@@ -17,22 +19,21 @@ const fetchProduct = async (product) => {
   return response.json();
 };
 
-const formatEuro = (price) => {
-  return new Intl.NumberFormat('nl-BE', {
-    currency: 'EUR',
-    style: 'currency',
-  }).format(price / 100);
-};
-
 const ProductTemplate = (props) => {
   const product = get(props, 'data.contentfulProduct');
   const contactImage = get(props, 'data.contentfulAsset.contactImage');
   const stripeProducts = get(props, 'data.contentfulProduct.prices');
 
-  const [specs, setSpecs] = useState([]);
-  const [selectedSpec, setSelectedSpec] = useState(null);
-  const [price, setPrice] = useState(0);
+  const dispatch = useContext(cartDispatchContext);
 
+  const [buttonState, setButtonState] = useState('init');
+  const [specs, setSpecs] = useState([]); // Price specifications from stripe
+  const [selectedSpec, setSelectedSpec] = useState(null); // selected stripe spec id
+  const [cartItem, setCartItem] = useState({
+    price: 0,
+  }); // prepared cart item
+
+  /* Load stripe data */
   useEffect(() => {
     const fetchSpecs = async () => {
       const data = await Promise.all(stripeProducts.map(fetchProduct));
@@ -44,11 +45,31 @@ const ProductTemplate = (props) => {
     if (stripeProducts) fetchSpecs();
   }, [stripeProducts]);
 
+  /* Selected a specification */
   useEffect(() => {
     const spec = specs.find((e) => e.price.id === selectedSpec);
 
-    if (spec) setPrice(formatEuro(spec.price.value));
-  }, [specs, selectedSpec]);
+    if (spec)
+      setCartItem({
+        title: spec.name,
+        url: `verkoop/${product.title}`,
+        id: selectedSpec,
+        price: spec.price.value,
+      });
+  }, [product.title, specs, selectedSpec]);
+
+  /* Add the item to the cart */
+  const addToCart = () => {
+    setButtonState('loading');
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: cartItem,
+    });
+
+    setTimeout(() => {
+      setButtonState('finished');
+    }, 500);
+  };
 
   const productImages = [...product.images];
   const mainProductImage = productImages.shift();
@@ -86,8 +107,9 @@ const ProductTemplate = (props) => {
                   <span className="focus"></span>
                 </div>
                 <div className={styles.checkoutGroup}>
-                  <h2 className={styles.price}>{price}</h2>
-                  <Checkout spec={selectedSpec} />
+                  <h2 className={styles.price}>{formatEuro(cartItem.price)}</h2>
+
+                  <PrimaryButton state={buttonState} onClick={addToCart} initialText="In winkelwagen" finishedText="Toegevoegd!" />
                 </div>
               </div>
             ) : (

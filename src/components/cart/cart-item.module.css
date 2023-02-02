@@ -1,0 +1,70 @@
+.container {
+  border-radius: 5px;
+  background-color: var(--off-white);
+  margin-bottom: 20px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:hover {
+  color: var(--text-color);
+}
+
+.content {
+  padding: 10px;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: auto 85px;
+}
+
+.title {
+  font-family: 'RobotoSlab', serif;
+  margin: 0;
+  width: 80%;
+  font-weight: 600;
+  font-size: 1.4em;
+}
+
+.quantity {
+  display: flex;
+  font-weight: bold;
+  text-align: right;
+  color: var(--text-color);
+}
+
+.quantityText {
+  margin: 3px 7px;
+}
+
+.quantityButton {
+  border-radius: 25%;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  border: 3px solid var(--secondary-color);
+  transition: 0.2s ease-out;
+}
+
+@media screen and (min-width: 600px) {
+  .content {
+    padding-right: 30px;
+    grid-template-columns: auto 100px;
+  }
+
+  .quantityText {
+    margin: 5px 10px;
+  }
+
+  .quantityButton {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+}
+
+.quantityButton:hover {
+  background-color: var(--secondary-color);
+}
