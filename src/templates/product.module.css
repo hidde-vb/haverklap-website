@@ -22,10 +22,16 @@
 
 .checkoutGroup {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
 
   max-width: 500px;
+}
+
+@media (min-width: 450px) {
+  .checkoutGroup {
+    flex-direction: row;
+  }
 }
 
 .price {
