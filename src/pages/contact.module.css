@@ -35,7 +35,7 @@
   width: 100%;
   margin: 5px 0;
   padding: 10px;
-  background: white;
+  background: var(--background-color);
   border: #e4eadf 2px solid;
   border-radius: 5px;
 }
@@ -44,7 +44,7 @@
   width: 100%;
   margin: 10px 0;
   padding: 10px;
-  background: white;
+  background: var(--background-color);
   border: 2px solid #e4eadf;
   transition-duration: 0.2s;
 }

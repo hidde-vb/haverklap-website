@@ -9,6 +9,8 @@ const Checkout = (product) => {
   const state = useContext(CartContext);
   const [messageContent, setMessageContent] = useState('');
   const [buttonState, setButtonState] = useState('init');
+  const [coupon, setCoupon] = useState('');
+  const [error, setError] = useState('');
 
   const redirectToCheckout = async (event) => {
     event.preventDefault();
@@ -17,13 +19,32 @@ const Checkout = (product) => {
 
     setButtonState('loading');
 
+    console.log(coupon);
+
     const body = {
       cart: state.products,
       message: messageContent,
     };
 
     try {
-      const res = await fetch(`${process.env.API_URL}/checkout`, {
+      if (coupon) {
+        const couponReponse = await fetch(`${process.env.API_URL}/coupon/${coupon}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+
+        const json = couponReponse.json();
+        if (json.message === 'ok') {
+          body.coupon = coupon;
+        } else {
+          setError('Onbekende code.');
+          throw new Error();
+        }
+      }
+
+      const redirectReponse = await fetch(`${process.env.API_URL}/checkout`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +52,7 @@ const Checkout = (product) => {
         body: JSON.stringify(body),
       });
 
-      const response = await res.json();
+      const response = await redirectReponse.json();
       window.location.href = response.url;
     } catch {
       setButtonState('init');
@@ -44,15 +65,22 @@ const Checkout = (product) => {
     <div className={styles.content}>
       <textarea
         id="message"
-        className={styles.messageBox}
+        className={`${styles.field} ${styles.messageBox}`}
         name="message"
-        placeholder="Is het een cadeau of heb je opmerkingen? Laat het zeker weten!"
+        placeholder="Laat hier je vragen of opmerkingen achter: persoonlijke boodschap bij bestelling, voorkeursdatum voor ophaling, kleurenvoorkeur enz."
         value={messageContent}
         onChange={(e) => setMessageContent(e.target.value)}
       ></textarea>
       <div className={styles.pricing}>
         <div className={styles.title}>Subtotaal</div>
         <div className={styles.price}>{price}</div>
+        <div className={styles.group}>
+          <label htmlFor="code">
+            Cadeaubon
+            <input className={styles.field} name="code" placeholder="" value={coupon} onChange={(e) => setCoupon(e.target.value)} />
+          </label>
+        </div>
+        {error && <div className={styles.error}>{error}</div>}
         <PrimaryButton state={buttonState} initialText="Afrekenen" finishedText="" disabled={buttonState} onClick={redirectToCheckout} />
       </div>
     </div>

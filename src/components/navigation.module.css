@@ -4,7 +4,7 @@
   max-height: 60px;
   width: 100%;
   font-size: 1.25em;
-  color: white;
+  color: var(--background-color);
   z-index: 10;
 }
 
