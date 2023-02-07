@@ -56,6 +56,8 @@ const ProductTemplate = (props) => {
         id: selectedSpec,
         price: spec.price.value,
       });
+
+    setButtonState('init');
   }, [product.title, specs, selectedSpec]);
 
   /* Add the item to the cart */

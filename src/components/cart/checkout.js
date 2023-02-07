@@ -38,7 +38,7 @@ const Checkout = (product) => {
     }
   };
 
-  const totalPrice = formatEuro(totalPrice(state.products));
+  const price = formatEuro(totalPrice(state.products));
 
   return (
     <div className={styles.content}>
@@ -52,7 +52,7 @@ const Checkout = (product) => {
       ></textarea>
       <div className={styles.pricing}>
         <div className={styles.title}>Subtotaal</div>
-        <div className={styles.price}>{totalPrice}</div>
+        <div className={styles.price}>{price}</div>
         <PrimaryButton state={buttonState} initialText="Afrekenen" finishedText="" disabled={buttonState} onClick={redirectToCheckout} />
       </div>
     </div>

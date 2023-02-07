@@ -1,20 +1,19 @@
-import React, { useState, useLayoutEffect } from 'react';
+import React, { useState, useLayoutEffect, useContext } from 'react';
 import { Link } from 'gatsby';
-import styles from './navigation.module.css';
 
+import { CartContext } from './cart/cart-context';
+import { amountOfItems } from './cart/cart-utils';
+import styles from './navigation.module.css';
 import cartGlyph from '../images/cart-glyph.png';
 import facebookGlyph from '../images/facebook-glyph.png';
 import instagramGlyph from '../images/instagram-glyph.png';
 
 export default () => {
   const [open, setOpen] = useState(false);
-  const [showLogo, setShowLogo] = useState(false);
 
-  useLayoutEffect(() => {
-    document.addEventListener('scroll', () => {
-      setShowLogo(window.scrollY > window.innerHeight - 50);
-    });
-  });
+  const cart = useContext(CartContext);
+
+  const items = amountOfItems(cart.products);
 
   const handleKeyPress = (e) => {
     if (e.keyCode === 20) setOpen(!open);
@@ -51,9 +50,6 @@ export default () => {
               </Link>
             </div>
             <div className={styles.verticalMenuItem}>
-              <a className={styles.menuLink} href="/winkelwagen">
-                <img className={styles.menuIcon} src={cartGlyph} alt="C" />
-              </a>
               <a className={styles.menuLink} href="https://www.facebook.com/haverklap.bloemen/" rel="noreferrer" target="_blank">
                 <img className={styles.menuIcon} src={facebookGlyph} alt="F" />
               </a>
@@ -64,9 +60,13 @@ export default () => {
           </div>
         )}
         <div className={styles.navigationBar}>
-          <object className={styles.logo} style={showLogo ? { opacity: 1 } : { opacity: 0 }} type="image/svg+xml">
-            logo
-          </object>
+          {items !== '0' && (
+            <div className={styles.floatinCart}>
+              <a className={`${styles.menuLink} ${styles.badge} ${styles.bigBadge}`} value={items} href="/winkelwagen">
+                <img className={styles.menuIcon} src={cartGlyph} alt="C" />
+              </a>
+            </div>
+          )}
           <div className={`${styles.hamburger} ${open && styles.active}`} tabIndex={0} role="button" onKeyPress={(e) => handleKeyPress(e)} onClick={() => setOpen(!open)}>
             <div className={styles.hamburgerLine}></div>
             <div className={styles.hamburgerLine}></div>
@@ -99,9 +99,11 @@ export default () => {
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <a className={styles.menuLink} href="/winkelwagen">
-                <img className={styles.menuIcon} src={cartGlyph} alt="C" />
-              </a>
+              {items !== '0' && (
+                <a className={`${styles.menuLink} ${styles.badge}`} value={items} href="/winkelwagen">
+                  <img className={styles.menuIcon} src={cartGlyph} alt="C" />
+                </a>
+              )}
               <a className={styles.menuLink} href="https://www.facebook.com/haverklap.bloemen/" rel="noreferrer" target="_blank">
                 <img className={styles.menuIcon} src={facebookGlyph} alt="F" />
               </a>

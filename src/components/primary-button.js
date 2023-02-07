@@ -9,13 +9,7 @@ const states = {
 };
 
 const PrimaryButton = ({ state, initialText, finishedText, onClick }) => (
-  <button
-    type="button"
-    role="button"
-    className={`button ${styles.buttonPrimary} ${state === states.loading && styles.buttonLoading}`}
-    onClick={onClick}
-    disabled={state === states.finished}
-  >
+  <button type="button" className={`button ${styles.buttonPrimary} ${state === states.loading && styles.buttonLoading}`} onClick={onClick} disabled={state === states.finished}>
     <span className={styles.text}>{state === states.finished ? finishedText : initialText}</span>
   </button>
 );
