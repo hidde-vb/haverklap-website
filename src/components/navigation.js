@@ -60,7 +60,7 @@ export default () => {
           </div>
         )}
         <div className={styles.navigationBar}>
-          {items !== '0' && (
+          {items && items !== '0' && (
             <div className={styles.floatinCart}>
               <a className={`${styles.menuLink} ${styles.badge} ${styles.bigBadge}`} value={items} href="/winkelwagen">
                 <img className={styles.menuIcon} src={cartGlyph} alt="C" />
@@ -99,7 +99,7 @@ export default () => {
               </Link>
             </li>
             <li className={styles.menuItem}>
-              {items !== '0' && (
+              {items && items !== '0' && (
                 <a className={`${styles.menuLink} ${styles.badge}`} value={items} href="/winkelwagen">
                   <img className={styles.menuIcon} src={cartGlyph} alt="C" />
                 </a>

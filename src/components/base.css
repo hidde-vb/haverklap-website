@@ -28,7 +28,8 @@ html {
   --primary-color: #939e78;
   --secondary-color: #e1e8cf;
   --off-white: #f4f7f0;
-  --warning: #b33a3a;
+  --warning: #d4c966;
+  --error: #b33a3a;
 }
 
 body {

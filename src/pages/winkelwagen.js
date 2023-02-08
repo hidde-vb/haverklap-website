@@ -41,22 +41,24 @@ const WinkelWagenPage = (props) => {
       <Helmet title={siteTitle}>
         <link rel="icon" href={favicon} />
       </Helmet>
-      <div className="main">
-        <h2 className="pageTitle">Winkelwagentje</h2>
-        {cart?.products?.length > 0 ? (
-          cart.products.map((product) => <CartItem key={product.id} product={product} increase={handleIncrease} decrease={handleDecrease} />)
-        ) : (
-          <div className="warning-container">
-            <p>
-              Je winkelwagentje is leeg. Bij <Link to="/verkoop">Verkoop</Link> kan je verder gaan met winkelen.
-            </p>
+      {cart && (
+        <div className="main">
+          <h2 className="pageTitle">Winkelwagentje</h2>
+          {cart.products.length > 0 ? (
+            cart.products.map((product) => <CartItem key={product.id} product={product} increase={handleIncrease} decrease={handleDecrease} />)
+          ) : (
+            <div className="warning-container">
+              <p>
+                Je winkelwagentje is leeg. Bij <Link to="/verkoop">Verkoop</Link> kan je verder gaan met winkelen.
+              </p>
+            </div>
+          )}
+          <div className={styles.divider} />
+          <div className={styles.checkout}>
+            <Checkout />
           </div>
-        )}
-        <div className={styles.divider} />
-        <div className={styles.checkout}>
-          <Checkout />
         </div>
-      </div>
+      )}
     </Layout>
   );
 };
