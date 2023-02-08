@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'gatsby';
 
 import { CartContext } from './cart/cart-context';
@@ -13,7 +13,7 @@ export default () => {
 
   const cart = useContext(CartContext);
 
-  const items = amountOfItems(cart.products);
+  const items = amountOfItems(cart);
 
   const handleKeyPress = (e) => {
     if (e.keyCode === 20) setOpen(!open);

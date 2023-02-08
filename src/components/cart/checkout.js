@@ -6,7 +6,7 @@ import { formatEuro, totalPrice } from './cart-utils';
 import styles from './checkout.module.css';
 
 const Checkout = (product) => {
-  const state = useContext(CartContext);
+  const cart = useContext(CartContext);
   const [messageContent, setMessageContent] = useState('');
   const [buttonState, setButtonState] = useState('init');
   const [coupon, setCoupon] = useState('');
@@ -19,10 +19,8 @@ const Checkout = (product) => {
 
     setButtonState('loading');
 
-    console.log(coupon);
-
     const body = {
-      cart: state.products,
+      cart: cart.products,
       message: messageContent,
     };
 
@@ -59,7 +57,7 @@ const Checkout = (product) => {
     }
   };
 
-  const price = formatEuro(totalPrice(state.products));
+  const price = formatEuro(totalPrice(cart));
 
   return (
     <div className={styles.content}>

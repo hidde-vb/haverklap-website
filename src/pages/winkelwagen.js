@@ -15,7 +15,7 @@ const WinkelWagenPage = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');
   const contactImage = get(props, 'data.contentfulAsset.contactImage');
 
-  const state = useContext(CartContext);
+  const cart = useContext(CartContext);
   const dispatch = useContext(cartDispatchContext);
 
   const handleIncrease = (id) => {
@@ -43,8 +43,8 @@ const WinkelWagenPage = (props) => {
       </Helmet>
       <div className="main">
         <h2 className="pageTitle">Winkelwagentje</h2>
-        {state.products.length > 0 ? (
-          state.products.map((product) => <CartItem key={product.id} product={product} increase={handleIncrease} decrease={handleDecrease} />)
+        {cart?.products?.length > 0 ? (
+          cart.products.map((product) => <CartItem key={product.id} product={product} increase={handleIncrease} decrease={handleDecrease} />)
         ) : (
           <div className="warning-container">
             <p>
