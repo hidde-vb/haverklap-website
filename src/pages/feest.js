@@ -6,7 +6,7 @@ import Layout from '../components/layout';
 import ImageGrid from '../components/imageGrid';
 import favicon from '../images/favicon.ico';
 
-const Atelier = (props) => {
+const Feest = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');
   const contactImage = get(props, 'data.contentfulAsset.contactImage');
   const pageContent = get(props, 'data.contentfulPageContent');
@@ -30,16 +30,16 @@ const Atelier = (props) => {
   );
 };
 
-export default Atelier;
+export default Feest;
 
 export const pageQuery = graphql`
-  query AtelierIndexQuery {
+  query FeestIndexQuery {
     site {
       siteMetadata {
         title
       }
     }
-    contentfulPageContent(title: { eq: "atelier" }) {
+    contentfulPageContent(title: { eq: "feest" }) {
       title
       article {
         childMarkdownRemark {

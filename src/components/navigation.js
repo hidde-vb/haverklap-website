@@ -26,27 +26,27 @@ export default () => {
           <div className={styles.verticalMenu}>
             <div className={styles.verticalMenuItem}>
               <Link className={styles.menuLink} to="/">
-                Haverklap
+                haverklap
               </Link>
             </div>
             <div className={styles.verticalMenuItem}>
               <Link className={styles.menuLink} to="/op-het-veld">
-                Op het veld
+                op het veld
               </Link>
             </div>
             <div className={styles.verticalMenuItem}>
-              <Link className={styles.menuLink} to="/atelier">
-                Atelier
+              <Link className={styles.menuLink} to="/feest">
+                feest
               </Link>
             </div>
             <div className={styles.verticalMenuItem}>
               <Link className={styles.menuLink} to="/verkoop">
-                Verkoop
+                verkoop
               </Link>
             </div>
             <div className={styles.verticalMenuItem}>
               <Link className={styles.menuLink} to="/contact">
-                Contact
+                contact
               </Link>
             </div>
             <div className={styles.verticalMenuItem}>
@@ -84,8 +84,8 @@ export default () => {
               </Link>
             </li>
             <li className={styles.menuItem}>
-              <Link className={styles.menuLink} to="/atelier">
-                atelier
+              <Link className={styles.menuLink} to="/feest">
+                feest
               </Link>
             </li>
             <li className={styles.menuItem}>
