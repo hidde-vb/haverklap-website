@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import get from 'lodash/get';
 import { Helmet } from 'react-helmet';
 
-import ImageGrid from '../components/imageGrid';
+import ImageGrid from '../components/image-grid';
 import Layout from '../components/layout';
 
 import favicon from '../images/favicon.ico';
@@ -50,15 +50,11 @@ export const pageQuery = graphql`
       }
       images {
         id
-        fluid(maxWidth: 400, maxHeight: 400, quality: 95, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
+        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 400, height: 400)
       }
     }
     contentfulAsset(title: { eq: "contact" }) {
-      contactImage: fluid(maxWidth: 300, maxHeight: 400, background: "rgb:000000") {
-        ...GatsbyContentfulFluid_tracedSVG
-      }
+      gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 300, height: 400)
     }
   }
 `;

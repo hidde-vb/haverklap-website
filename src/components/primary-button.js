@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './primary-button.module.css';
+import * as styles from './primary-button.module.css';
 
 const states = {
   init: 'init',

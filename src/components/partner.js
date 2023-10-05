@@ -1,13 +1,15 @@
-import React from 'react'
-import Img from 'gatsby-image'
+import React from 'react';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
-import styles from './partner.module.css'
+import * as styles from './partner.module.css';
 
-export default ({ partner }) => (
+const partner = ({ partner }) => (
   <a className={styles.link} href={partner.website} rel="noreferrer" target="_blank">
     <div className={styles.container}>
-      <Img className={styles.image} alt={partner.title} fluid={partner.image.fluid} />
+      <GatsbyImage className={styles.image} alt={partner.title} image={partner.image.gatsbyImage} />
       <h3 className={styles.title}>{partner.title}</h3>
     </div>
   </a>
-)
+);
+
+export default partner;

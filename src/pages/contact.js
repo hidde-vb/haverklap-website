@@ -4,10 +4,10 @@ import emailjs from 'emailjs-com';
 
 import get from 'lodash/get';
 import { Helmet } from 'react-helmet';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import Layout from '../components/layout';
 
-import styles from './contact.module.css';
+import * as styles from './contact.module.css';
 import favicon from '../images/favicon.ico';
 
 class RootIndex extends React.Component {
@@ -39,7 +39,7 @@ class RootIndex extends React.Component {
 
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title');
-    const contactImage = get(this, 'props.data.contentfulAsset.contactImage');
+    const contactImage = get(this, 'props.data.contentfulAsset.gatsbyImage');
     const pageContent = get(this, 'props.data.contentfulPageContent');
 
     return (
@@ -56,7 +56,7 @@ class RootIndex extends React.Component {
             }}
           />
           <div className={styles.contactWrapper}>
-            <Img className={styles.gridImage} alt={pageContent.title} fluid={pageContent.images[0].fluid} />
+            <GatsbyImage className={styles.gridImage} alt={pageContent.title} image={pageContent.images[0].gatsbyImage} />
             <div className={styles.gridTile}>
               <form id="contact-form" className={styles.form} onSubmit={this.sendEmail}>
                 <input type="hidden" name="contact_number" />
@@ -108,15 +108,11 @@ export const pageQuery = graphql`
       }
       images {
         id
-        fluid(maxWidth: 400, maxHeight: 300, quality: 95, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
+        gatsbyImage(layout: FULL_WIDTH, width: 400, height: 300)
       }
     }
     contentfulAsset(title: { eq: "contact" }) {
-      contactImage: fluid(maxWidth: 300, maxHeight: 400, background: "rgb:000000") {
-        ...GatsbyContentfulFluid_tracedSVG
-      }
+      gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 300, height: 400)
     }
   }
 `;

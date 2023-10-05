@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { graphql, Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 import get from 'lodash/get';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 import Layout from '../components/layout';
 import { formatEuro } from '../components/cart/cart-utils';
 import favicon from '../images/favicon.ico';
 
-import styles from './product.module.css';
+import * as styles from './product.module.css';
 import { cartDispatchContext } from '../components/cart/cart-context';
 import PrimaryButton from '../components/primary-button';
 
@@ -82,12 +82,12 @@ const ProductTemplate = (props) => {
         <link rel="icon" href={favicon} />
       </Helmet>
       <div className="wrapper">
-        <Link className={styles.link} to={`/verkoop`}>
+        <Link to={`/verkoop`}>
           <button className="button button-light">← terug</button>
         </Link>
         <div className={styles.productWrapper}>
           <div className={styles.gridTileContainer}>
-            <Img className={styles.gridTile} key={mainProductImage.id} alt={mainProductImage.title} fluid={mainProductImage.fluid} />
+            <GatsbyImage className={styles.gridTile} key={mainProductImage.id} alt={mainProductImage.title} image={mainProductImage.gatsbyImage} />
           </div>
           <div className={`${styles.gridTile} ${styles.article}`}>
             <h2 className="title">{product.title}</h2>
@@ -115,13 +115,13 @@ const ProductTemplate = (props) => {
                 </div>
               </div>
             ) : (
-              <Link className={styles.link} to={`/contact`}>
+              <Link to={`/contact`}>
                 <button className="button">Bestel hier → </button>
               </Link>
             )}
           </div>
           {productImages.map((image) => {
-            return <Img className={styles.gridTile} key={image.id} alt={image.title} fluid={image.fluid} />;
+            return <GatsbyImage className={styles.gridTile} key={image.id} alt={image.title} image={image.gatsbyImage} />;
           })}
         </div>
       </div>
@@ -134,9 +134,7 @@ export default ProductTemplate;
 export const pageQuery = graphql`
   query ProductBySlug($slug: String!) {
     contentfulAsset(title: { eq: "contact" }) {
-      contactImage: fluid(maxWidth: 300, maxHeight: 400, background: "rgb:000000") {
-        ...GatsbyContentfulFluid_tracedSVG
-      }
+      gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 300, height: 400)
     }
     contentfulProduct(slug: { eq: $slug }) {
       title
@@ -149,9 +147,7 @@ export const pageQuery = graphql`
       images {
         id
         title
-        fluid(maxWidth: 600, maxHeight: 500, quality: 95, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
+        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 600, height: 500)
       }
     }
   }

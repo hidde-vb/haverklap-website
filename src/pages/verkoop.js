@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import get from 'lodash/get';
 import { Helmet } from 'react-helmet';
 
-import styles from './verkoop.module.css';
+import * as styles from './verkoop.module.css';
 import Layout from '../components/layout';
 import ProductPreview from '../components/product-preview';
 import favicon from '../images/favicon.ico';
@@ -60,9 +60,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulAsset(title: { eq: "contact" }) {
-      contactImage: fluid(maxWidth: 600, maxHeight: 800, quality: 90, background: "rgb:000000") {
-        ...GatsbyContentfulFluid_tracedSVG
-      }
+      contactImage: gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 600, height: 800)
     }
     allContentfulProduct {
       edges {
@@ -77,9 +75,7 @@ export const pageQuery = graphql`
           }
           images {
             id
-            fluid(maxWidth: 350, maxHeight: 400, quality: 95, background: "rgb:000000") {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
+            gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 350, height: 400)
           }
         }
       }

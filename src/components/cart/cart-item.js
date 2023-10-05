@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './cart-item.module.css';
+import * as styles from './cart-item.module.css';
 import { formatEuro } from './cart-utils';
 
 const QuantityButton = ({ text, onClick }) => (

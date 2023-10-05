@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import styles from './modal.module.css';
+import * as styles from './modal.module.css';
 import logo from '../images/logo.svg';
 
 const Modal = ({ children }) => {

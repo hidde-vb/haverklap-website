@@ -1,13 +1,13 @@
 import React from 'react';
-import Img from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { Link } from 'gatsby';
 
-import styles from './footer.module.css';
+import * as styles from './footer.module.css';
 
-export default ({ data }) => (
+const footer = ({ data }) => (
   <div className={styles.footer}>
     <div className={styles.wrapper}>
-      <Img className={styles.footerImage} fluid={data} />
+      <GatsbyImage className={styles.footerImage} image={data} />
       <div className={styles.row}>
         <ul className={styles.list}>
           <li>
@@ -35,3 +35,5 @@ export default ({ data }) => (
     </div>
   </div>
 );
+
+export default footer;

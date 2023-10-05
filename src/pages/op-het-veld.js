@@ -1,104 +1,83 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import get from 'lodash/get'
-import { Helmet } from 'react-helmet'
+import React from 'react';
+import { graphql } from 'gatsby';
+import get from 'lodash/get';
+import { Helmet } from 'react-helmet';
 
-import ImageGrid from '../components/imageGrid'
-import Layout from '../components/layout'
-import Partner from '../components/partner'
+import ImageGrid from '../components/image-grid';
+import Layout from '../components/layout';
+import Partner from '../components/partner';
 
-import favicon from '../images/favicon.ico'
+import favicon from '../images/favicon.ico';
 
-import styles from './op-het-veld.module.css'
+import * as styles from './op-het-veld.module.css';
 
 class RootIndex extends React.Component {
   render() {
-    const siteTitle = get(this, 'props.data.site.siteMetadata.title')
-    const contactImage = get(this, 'props.data.contentfulAsset.contactImage')
-    const pageContent = get(this, 'props.data.contentfulPageContent')
-    const partners = get(this, 'props.data.allContentfulPartner.edges')
+    const siteTitle = get(this, 'props.data.site.siteMetadata.title');
+    const contactImage = get(this, 'props.data.contentfulAsset.gatsbyImage');
+    const pageContent = get(this, 'props.data.contentfulPageContent');
+    const partners = get(this, 'props.data.allContentfulPartner.edges');
 
     return (
       <Layout location={this.props.location} footerImage={contactImage} hasBigLogo={false}>
-        <Helmet title={siteTitle} >
+        <Helmet title={siteTitle}>
           <link rel="icon" href={favicon} />
         </Helmet>
         <div className="wrapper">
           <h1 className="pageTitle">{pageContent.title}</h1>
-          <div className="textBlock"
+          <div
+            className="textBlock"
             dangerouslySetInnerHTML={{
               __html: pageContent.article.childMarkdownRemark.html,
             }}
           />
           <div className={styles.partnerList}>
             {partners.map(({ node }) => {
-              return (
-                <Partner key={node.title} partner={node} />
-              )
+              return <Partner key={node.title} partner={node} />;
             })}
           </div>
           <ImageGrid data={pageContent.images} />
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default RootIndex
+export default RootIndex;
 
 export const pageQuery = graphql`
   query OpHetVeldIndexQuery {
-    contentfulPageContent(title: { eq: "op het veld"}) {
+    contentfulPageContent(title: { eq: "op het veld" }) {
       title
       article {
         childMarkdownRemark {
           html
         }
       }
-      images { 
+      images {
         id
-        fluid(
-          maxWidth: 400
-          maxHeight: 400
-          quality: 95
-          background: "rgb:000000"
-        ) {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
+        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 400, height: 400)
       }
     }
     site {
       siteMetadata {
         title
-      } 
+      }
     }
     contentfulAsset(title: { eq: "contact" }) {
-      contactImage: fluid(
-        maxWidth: 300
-        maxHeight: 400
-        background: "rgb:000000"
-      ) {
-        ...GatsbyContentfulFluid_tracedSVG
-      }
+      gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 300, height: 400)
     }
     allContentfulPartner {
       edges {
         node {
           title
           website
-          image { 
+          image {
             id
-            fluid(
-              maxWidth: 400
-              maxHeight: 400
-              quality: 95
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
+            gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 400, height: 400)
           }
         }
       }
     }
   }
-`
+`;

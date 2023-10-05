@@ -1,14 +1,16 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import React from 'react';
+import { Link } from 'gatsby';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
-import styles from './product-preview.module.css'
+import * as styles from './product-preview.module.css';
 
-export default ({ product }) => (
+const productPreview = ({ product }) => (
   <div className={styles.preview}>
     <Link className={styles.link} to={`/verkoop/${product.slug}`}>
-      <Img className={styles.image} alt={product.slug} fluid={product.images[0].fluid} />
+      <GatsbyImage className={styles.image} alt={product.slug} image={product.images[0].gatsbyImage} />
       <h3 className={styles.title}>{product.title}</h3>
     </Link>
   </div>
-)
+);
+
+export default productPreview;

@@ -3,7 +3,7 @@ import React from 'react'
 import './base.css'
 import Navigation from './navigation'
 import Footer from './footer'
-import styles from './layout.module.css'
+import * as styles from './layout.module.css'
 import Logo from '../images/logo.svg'
 class Template extends React.Component {
   render() {

@@ -3,12 +3,13 @@ import { Link } from 'gatsby';
 
 import { CartContext } from './cart/cart-context';
 import { amountOfItems } from './cart/cart-utils';
-import styles from './navigation.module.css';
+import * as styles from './navigation.module.css';
 import cartGlyph from '../images/cart-glyph.png';
 import facebookGlyph from '../images/facebook-glyph.png';
 import instagramGlyph from '../images/instagram-glyph.png';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
-export default () => {
+const Navigation = () => {
   const [open, setOpen] = useState(false);
 
   const cart = useContext(CartContext);
@@ -117,3 +118,5 @@ export default () => {
     </nav>
   );
 };
+
+export default Navigation;

@@ -1,11 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import get from 'lodash/get';
 import { Helmet } from 'react-helmet';
-import Img from 'gatsby-image';
-import { useQueryParam } from 'gatsby-query-params';
+import { GatsbyImage } from 'gatsby-plugin-image';
+import get from 'lodash/get';
 
-import ImageGrid from '../components/imageGrid';
+import ImageGrid from '../components/image-grid';
 import Layout from '../components/layout';
 import Modal from '../components/modal';
 
@@ -18,13 +17,15 @@ const RootIndex = (props) => {
   const pageContent = get(props, 'data.contentfulPageContent');
   const newsContent = get(props, 'data.contentfulNews');
 
+  const params = new URLSearchParams(props.location.search);
+
   return (
     <Layout location={props.location} footerImage={contactImage} hasBigLogo={true}>
       <Helmet title={siteTitle}>
         <link rel="icon" href={favicon} />
       </Helmet>
       <div className="jumbo">
-        <Img alt={pageContent.title} fluid={pageContent.titleImage.fluid} />
+        <GatsbyImage alt={pageContent.title} image={pageContent.titleImage.gatsbyImage} />
         {newsContent.visible && (
           <div
             className="jumboText"
@@ -47,13 +48,13 @@ const RootIndex = (props) => {
         <ImageGrid data={pageContent.images} />
       </div>
 
-      {useQueryParam('success') && (
+      {params.get('success') && (
         <Modal>
           <p>Bedankt voor je bestelling!</p>
           <p>We gaan er direct mee aan de slag.</p>
         </Modal>
       )}
-      {useQueryParam('canceled') && (
+      {params.get('canceled') && (
         <Modal>
           <p>De bestelling is geannuleerd.</p>
         </Modal>
@@ -67,9 +68,7 @@ export default RootIndex;
 export const pageQuery = graphql`
   query HomeQuery {
     contentfulAsset(title: { eq: "contact" }) {
-      contactImage: fluid(maxWidth: 300, maxHeight: 400, background: "rgb:000000") {
-        ...GatsbyContentfulFluid_tracedSVG
-      }
+      gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 300, height: 400)
     }
     site {
       siteMetadata {
@@ -87,9 +86,7 @@ export const pageQuery = graphql`
     contentfulPageContent(title: { eq: "haverklap" }) {
       title
       titleImage {
-        fluid(maxWidth: 2400, maxHeight: 1200, quality: 95, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
+        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 2400, height: 1200)
       }
       article {
         childMarkdownRemark {
@@ -98,9 +95,7 @@ export const pageQuery = graphql`
       }
       images {
         id
-        fluid(maxWidth: 400, maxHeight: 400, quality: 95, background: "rgb:000000") {
-          ...GatsbyContentfulFluid_tracedSVG
-        }
+        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 400, height: 400)
       }
     }
   }

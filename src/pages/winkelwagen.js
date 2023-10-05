@@ -9,7 +9,7 @@ import CartItem from '../components/cart/cart-item';
 import Checkout from '../components/cart/checkout';
 
 import favicon from '../images/favicon.ico';
-import styles from './winkelwagen.module.css';
+import * as styles from './winkelwagen.module.css';
 
 const WinkelWagenPage = (props) => {
   const siteTitle = get(props, 'data.site.siteMetadata.title');
@@ -68,9 +68,7 @@ export default WinkelWagenPage;
 export const pageQuery = graphql`
   query winkelwagenQuery {
     contentfulAsset(title: { eq: "contact" }) {
-      contactImage: fluid(maxWidth: 300, maxHeight: 400, background: "rgb:000000") {
-        ...GatsbyContentfulFluid_tracedSVG
-      }
+      gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 300, height: 400)
     }
     site {
       siteMetadata {

@@ -3,7 +3,7 @@ import PrimaryButton from '../primary-button';
 import { CartContext } from './cart-context';
 import { formatEuro, totalPrice } from './cart-utils';
 
-import styles from './checkout.module.css';
+import * as styles from './checkout.module.css';
 
 const Checkout = (product) => {
   const cart = useContext(CartContext);
