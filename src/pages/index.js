@@ -67,9 +67,6 @@ export default RootIndex;
 
 export const pageQuery = graphql`
   query HomeQuery {
-    contentfulAsset(title: { eq: "contact" }) {
-      gatsbyImage(layout: FULL_WIDTH, width: 300, height: 400)
-    }
     site {
       siteMetadata {
         title
@@ -97,6 +94,9 @@ export const pageQuery = graphql`
         id
         gatsbyImage(layout: FULL_WIDTH, width: 400, height: 400)
       }
+    }
+    contentfulAsset(title: { eq: "contact" }) {
+      gatsbyImage(layout: FULL_WIDTH, width: 300, height: 400)
     }
   }
 `;

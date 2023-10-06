@@ -35,4 +35,15 @@ module.exports = {
       options: contentfulConfig,
     },
   ],
+  headers: [
+    {
+      source: `/static/:slug`,
+      headers: [
+        {
+          key: `X-Frame-Options`,
+          value: `SAMEORIGIN`,
+        }
+      ]
+    }
+  ]
 };
