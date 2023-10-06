@@ -112,7 +112,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulAsset(title: { eq: "contact" }) {
-      gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 300, height: 400)
+      gatsbyImage(layout: FULL_WIDTH, width: 300, height: 400)
     }
   }
 `;

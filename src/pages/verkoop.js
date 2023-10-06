@@ -60,7 +60,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulAsset(title: { eq: "contact" }) {
-      contactImage: gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 600, height: 800)
+      contactImage: gatsbyImage(layout: FULL_WIDTH, width: 600, height: 800)
     }
     allContentfulProduct {
       edges {
@@ -75,7 +75,7 @@ export const pageQuery = graphql`
           }
           images {
             id
-            gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 350, height: 400)
+            gatsbyImage(layout: FULL_WIDTH, width: 350, height: 400)
           }
         }
       }

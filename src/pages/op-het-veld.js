@@ -56,7 +56,7 @@ export const pageQuery = graphql`
       }
       images {
         id
-        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 400, height: 400)
+        gatsbyImage(layout: FULL_WIDTH, width: 400, height: 400)
       }
     }
     site {
@@ -65,7 +65,7 @@ export const pageQuery = graphql`
       }
     }
     contentfulAsset(title: { eq: "contact" }) {
-      gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 300, height: 400)
+      gatsbyImage(layout: FULL_WIDTH, width: 300, height: 400)
     }
     allContentfulPartner {
       edges {
@@ -74,7 +74,7 @@ export const pageQuery = graphql`
           website
           image {
             id
-            gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 400, height: 400)
+            gatsbyImage(layout: FULL_WIDTH, width: 400, height: 400)
           }
         }
       }

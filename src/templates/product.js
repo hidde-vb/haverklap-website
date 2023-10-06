@@ -134,7 +134,7 @@ export default ProductTemplate;
 export const pageQuery = graphql`
   query ProductBySlug($slug: String!) {
     contentfulAsset(title: { eq: "contact" }) {
-      gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 300, height: 400)
+      gatsbyImage(layout: FULL_WIDTH, width: 300, height: 400)
     }
     contentfulProduct(slug: { eq: $slug }) {
       title
@@ -147,7 +147,7 @@ export const pageQuery = graphql`
       images {
         id
         title
-        gatsbyImage(layout: FULL_WIDTH, placeholder: BLURRED, width: 600, height: 500)
+        gatsbyImage(layout: FULL_WIDTH, width: 600, height: 500)
       }
     }
   }

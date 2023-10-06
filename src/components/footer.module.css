@@ -44,5 +44,6 @@
 .bottom {
   display: block;
   margin: 60px auto;
+  padding: 0 10px;
   text-align: center;
 }
