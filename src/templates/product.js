@@ -73,8 +73,8 @@ const ProductTemplate = (props) => {
     }, 500);
   };
 
-  const productImages = [...product.images];
-  const mainProductImage = productImages.shift();
+  const productImages = product.images ? [...product.images] : [];
+  const mainProductImage = productImages && productImages.shift();
 
   return (
     <Layout location={props.location} footerImage={contactImage} hasBigLogo={false}>
@@ -87,7 +87,9 @@ const ProductTemplate = (props) => {
         </Link>
         <div className={styles.productWrapper}>
           <div className={styles.gridTileContainer}>
-            <GatsbyImage className={styles.gridTile} key={mainProductImage.id} alt={mainProductImage.title} image={mainProductImage.gatsbyImage} />
+            {mainProductImage && (
+              <GatsbyImage className={styles.gridTile} key={mainProductImage.id} alt={mainProductImage.title} image={mainProductImage.gatsbyImage} />
+            )}
           </div>
           <div className={`${styles.gridTile} ${styles.article}`}>
             <h2 className="title">{product.title}</h2>
@@ -99,7 +101,13 @@ const ProductTemplate = (props) => {
             {stripeProducts?.length > 0 && selectedSpec ? (
               <div>
                 <div className={styles.select}>
-                  <select name="prices" id="spec-select" value={selectedSpec} onChange={(e) => setSelectedSpec(e.target.value)} onBlur={(e) => setSelectedSpec(e.target.value)}>
+                  <select
+                    name="prices"
+                    id="spec-select"
+                    value={selectedSpec}
+                    onChange={(e) => setSelectedSpec(e.target.value)}
+                    onBlur={(e) => setSelectedSpec(e.target.value)}
+                  >
                     {specs.map((spec) => (
                       <option key={spec.price.id} value={spec.price.id}>
                         {spec.name}
