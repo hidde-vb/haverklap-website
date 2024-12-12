@@ -92,7 +92,7 @@ export const CartProvider = ({ children }) => {
     };
 
     loadState();
-  }, [state]);
+  }, []);
 
   return (
     <CartContext.Provider value={state}>

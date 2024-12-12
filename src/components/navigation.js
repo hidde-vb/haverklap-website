@@ -1,13 +1,12 @@
-import React, { useState, useContext } from 'react';
 import { Link } from 'gatsby';
+import React, { useContext, useState } from 'react';
 
-import { CartContext } from './cart/cart-context';
-import { amountOfItems } from './cart/cart-utils';
-import * as styles from './navigation.module.css';
 import cartGlyph from '../images/cart-glyph.png';
 import facebookGlyph from '../images/facebook-glyph.png';
 import instagramGlyph from '../images/instagram-glyph.png';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { CartContext } from './cart/cart-context';
+import { amountOfItems } from './cart/cart-utils';
+import * as styles from './navigation.module.css';
 
 const Navigation = () => {
   const [open, setOpen] = useState(false);
@@ -15,10 +14,6 @@ const Navigation = () => {
   const cart = useContext(CartContext);
 
   const items = amountOfItems(cart);
-
-  const handleKeyPress = (e) => {
-    if (e.keyCode === 20) setOpen(!open);
-  };
 
   return (
     <nav role="navigation">
@@ -68,7 +63,12 @@ const Navigation = () => {
               </a>
             </div>
           )}
-          <div className={`${styles.hamburger} ${open && styles.active}`} tabIndex={0} role="button" onKeyPress={(e) => handleKeyPress(e)} onClick={() => setOpen(!open)}>
+          <div
+            className={`${styles.hamburger} ${open && styles.active}`}
+            tabIndex={0}
+            role="button"
+            onClick={() => setOpen(!open)}
+          >
             <div className={styles.hamburgerLine}></div>
             <div className={styles.hamburgerLine}></div>
             <div className={styles.hamburgerLine}></div>

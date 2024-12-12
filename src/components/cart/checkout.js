@@ -18,6 +18,7 @@ const Checkout = (product) => {
     if (!product) return;
 
     setButtonState('loading');
+    setError('');
 
     const body = {
       cart: cart.products,
@@ -33,7 +34,7 @@ const Checkout = (product) => {
           },
         });
 
-        const json = couponReponse.json();
+        const json = await couponReponse.json();
         if (json.message === 'ok') {
           body.coupon = coupon;
         } else {
