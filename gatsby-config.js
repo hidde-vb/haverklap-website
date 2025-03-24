@@ -37,11 +37,11 @@ module.exports = {
   ],
   headers: [
     {
-      source: `/static/:slug`,
+      source: '/static/:slug',
       headers: [
         {
-          key: `X-Frame-Options`,
-          value: `SAMEORIGIN`,
+          key: "X-Frame-Options",
+          value: "SAMEORIGIN",
         }
       ]
     }
