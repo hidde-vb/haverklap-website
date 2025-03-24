@@ -29,7 +29,7 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     'gatsby-plugin-image',
-    'gatsby-plugin-netlify',
+    'gatsby-adapter-netlify',
     {
       resolve: 'gatsby-source-contentful',
       options: contentfulConfig,

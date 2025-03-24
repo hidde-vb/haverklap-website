@@ -1,0 +1,7 @@
+[build.environment]
+NETLIFY_IMAGE_CDN = "true"
+
+[images]
+remote_images = [
+  "https://images.ctfassets.net/uk5elgerh6i9/.*"
+]
